@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,15 +10,24 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'wpw7_users';
+
+    protected $primaryKey = 'ID';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_login',
+        'user_nicname',
+        'user_url',
+        'user_activation_key',
+        'user_email',
+        'user_pass',
+        'user_status',
+        'display_name',
     ];
 
     /**
@@ -28,7 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'user_pass',
         'remember_token',
     ];
 
@@ -40,4 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post', 'post_author');
+    }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,12 +16,8 @@ class LoginController extends BaseController
         $user =  $this->validateUser($request);
 
         $tokenResult = $user->createToken('Personal Access Token');
-//        $user->api_token = $tokenResult->accessToken;
-//        $user->save();
 
         $token = $tokenResult->token;
-
-//        Auth::guard()->login($user);
 
         if ($request->remember_me)
             $token->expires_at = Carbon::now()->addWeeks(1);
@@ -45,15 +41,15 @@ class LoginController extends BaseController
     private function validateUser(Request $request) {
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string',
-            'password' => 'required|string',
+            'user_email' => 'required|string',
+            'user_pass' => 'required|string',
         ]);
 
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $credentials = request(['email', 'password']);
+        $credentials = request(['user_email', 'user_pass']);
 
         if (!Auth::attempt($credentials))
             return $this->sendError('Unauthorized', [], 401);
@@ -64,7 +60,7 @@ class LoginController extends BaseController
     public function changePassword (Request $request){
         $user = $this->validateUser($request);
 
-        User::where('id', $user->id)->update(['password' => Hash::make($request->password)]);
+        User::where('id', $user->id)->update(['user_pass' => Hash::make($request->password)]);
 
         return $this->sendResponse([], "Successfully Changed Password");
 

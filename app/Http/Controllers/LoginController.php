@@ -15,6 +15,9 @@ class LoginController extends BaseController
     {
         $user =  $this->validateUser($request);
 
+        if(!$user)
+            return $this->sendError('Unauthorized', [], 401);
+
         $tokenResult = $user->createToken('Personal Access Token');
 
         $token = $tokenResult->token;
@@ -26,6 +29,7 @@ class LoginController extends BaseController
         return $this->sendResponse([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
+            'user_info' => User::where('user_email', $request->input('user_email'))->first(),
             'expires_at' => Carbon::parse(
                 $tokenResult->token->expires_at
             )->toDateTimeString()
@@ -49,12 +53,12 @@ class LoginController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $credentials = request(['user_email', 'user_pass']);
+//        $credentials = request(['user_email', 'user_pass']);
 
-        if (!Auth::attempt($credentials))
-            return $this->sendError('Unauthorized', [], 401);
+        if (!Auth::attempt(['user_email' => $request->input('user_email'), 'password' => $request->input('user_pass')]))
+            return false;
 
-        return $request->user();
+        return User::find(User::where('user_email', $request->input('user_email'))->value('ID'));
     }
 
     public function changePassword (Request $request){

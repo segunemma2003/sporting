@@ -26,8 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ec5d487-6313-4f2d-a968-624e08f019ea" name="Default Changelist" comment="Implemented Post Get API&#10;url = /api/post&#10;response = {&quot;success&quot;:true,&quot;data&quot;:[{..., &quot;author&quot; : {}}]}">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,6 +216,7 @@
       <workItem from="1602235802002" duration="9011000" />
       <workItem from="1602497387009" duration="72000" />
       <workItem from="1602594904817" duration="46000" />
+      <workItem from="1602844180185" duration="6951000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Post Get API&#10;url = /api/post&#10;response = {&quot;success&quot;:true,&quot;data&quot;:[{..., &quot;author&quot; : {}}]}">
       <created>1602188395244</created>

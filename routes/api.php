@@ -22,9 +22,9 @@ Route::apiResources([
     'post' => 'PostController',
 ]);
 
-//Route::get('post_data', function (Request $request) {
-//    return DB::select(DB::raw('select column_name, column_type from information_schema.columns where table_name=\'wpw7_posts\' AND table_schema=\'sporting\';'));
-//});
+Route::get('post_data', function (Request $request) {
+    return DB::select(DB::raw('select column_name, column_type from information_schema.columns where table_name=\'wpw7_users\' AND table_schema=\'sporting\';'));
+});
 
 Route::post('login', 'LoginController@login');
 Route::post('register', 'RegisterController@register');

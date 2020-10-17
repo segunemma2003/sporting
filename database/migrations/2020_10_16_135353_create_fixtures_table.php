@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateFixturesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('fixtures', function (Blueprint $table) {
+            $table->id();
+            $table->string('team');
+            $table->string('stadium');
+            $table->Integer('goal_scored');
+            $table->Integer('goal_conceded');
+            $table->timestamp('match_day');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('fixtures');
+    }
+}

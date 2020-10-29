@@ -25,7 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ec5d487-6313-4f2d-a968-624e08f019ea" name="Default Changelist" comment="Implemented Post Get API&#10;url = /api/post&#10;response = {&quot;success&quot;:true,&quot;data&quot;:[{..., &quot;author&quot; : {}}]}" />
+    <list default="true" id="5ec5d487-6313-4f2d-a968-624e08f019ea" name="Default Changelist" comment="Implemented Post Get API&#10;url = /api/post&#10;response = {&quot;success&quot;:true,&quot;data&quot;:[{..., &quot;author&quot; : {}}]}">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +179,6 @@
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />

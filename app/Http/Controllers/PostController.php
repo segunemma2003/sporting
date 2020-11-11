@@ -12,9 +12,9 @@ class PostController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index($post)
     {
-        return  $this->sendResponse(Post::with(['author'])->get(), "Successfully retrieved all posts");
+        return  $this->sendResponse(Post::with(['author'])->where('post_type', 'like', `%${$post}%`)->where('post_status', '<>', 'draft')->where('post_status', '<>', 'auto-draft')->where('post_status', '<>', 'wc-completed')->where('post_status', '<>', 'wc-on-hold')->where('post_status', '<>', 'trash')->get(), "Successfully retrieved all posts");
     }
 
     /**

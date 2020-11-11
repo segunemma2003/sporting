@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('post', 'PostController@index');
+Route::get('post/{type}', 'PostController@index');
 Route::get('fixture', 'FixtureController@index');
 
 //Route::middleware('auth:api')->group(function () {
